@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sort algorythmes</title>
+    <link rel="icon" href="E:/Iver/Code/JavaScript program/sorter/src/favicon/logo.svg"type="image/x-icon"/>
+    <link rel="stylesheet" href="style.css"/>
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" /> -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+    <section id="header">
+        <span style="font-size: 64px; padding-left: 40px;" class="material-symbols-outlined">
+            language
+        </span>
+        <span style="font-size: 64px; padding-right: 40px;" class="material-symbols-outlined">
+            menu
+        </span>
+        <!-- <div id="logo">This is what sorting algorythmes looks like in action</div> -->
+    </section>
+
+    <section id="mainBody">
+        <section id="menu">
+            <div class="infoHeader">
+                <p class="titles">Settings</p>
+            </div>
+            <section id="menuPos">
+                <div id="sliderContainer">
+                    <input type="range" id="slider" min="0" max="400" value="100"> 
+                    <p id="test">Antall tall: <output id="value"></output></p>
+                </div>
+                <button id="topButton">bubble sort</button>
+                <button>selection sort</button>
+                <button>heap sort</button>
+                <button>quick sort</button>
+                <button>merge sort</button>
+            </section>
+            <div class="infoHeader">
+                <p Stats class="titles">Stats</p>
+            </div>
+            <section id="stats">
+                <section id="statsContainer">
+                    <div class="statsTextContainer">
+                        <span style="font-size: 35px;" style="font-variation-settings: 'FILL' 0, 'wght' 700, 'GRAD' 0, 'opsz' 48;" class="material-symbols-outlined">
+                            open_with
+                        </span>
+                        <p>Moves done: 1234</p>
+                    </div>
+                    <div>
+                        <span style="font-size: 35px;" style="font-variation-settings: 'FILL' 0, 'wght' 700, 'GRAD' 0, 'opsz' 48;" style="padding-top: 25px;" class="material-symbols-outlined">
+                            schedule
+                        </span>
+                        <p>Total time: 300 ms</p>
+                    </div>
+                </section>
+            </section>
+        </section>
+    
+        <section id="filler">
+            <div id="settings">
+                <span style="color: white;" style="font-size: 35px;" style="font-variation-settings: 'FILL' 0, 'wght' 700, 'GRAD' 0, 'opsz' 48;" class="material-symbols-outlined">
+                    settings
+                </span>
+            </div>
+        </section>  
+
+        <section id="mainBodyCenter">
+            <section id="mainBodyCenterContainer">
+                <button id="topButton">Start simulation</button>
+                <section id="mainBodyInfo">
+                    Here you can visulize how different sorting alogrythmes work. On the left settings pannel you can choose what type of sort to use and how many item that should be sorted.  You can also select what speed the sort should be visulized at. After you start the sort number of moves and the time the sort took wlll be displayed on the settings panel. Have fun!
+                </section>
+            </section>
+            <section id="bord">
+                <canvas id="canvas"></canvas>
+            </section> 
+        </section> 
+
+        <section id="filler">
+        </section>  
+    </section>
+
+    <section id="footer">
+        <div>this is my nice footer</div>
+    </section>
+    <script type="text/javascript" src="app.js"></script>
+</body>
+</html>
