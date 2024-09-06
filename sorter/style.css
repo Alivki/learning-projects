@@ -23,7 +23,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-image: url("E:/Iver/Code/JavaScript program/sorter/src/backgrounds/holo.jpg");
+    background-image: url("E:/Iver/Code/GitHub/main/sorter/src/backgrounds/holo.jpg");
     border-bottom: 4px solid #151E2F;
 }
 
@@ -128,7 +128,7 @@ button {
 }
 
 #topButton {
-    background-image: url("E:/Iver/Code/JavaScript program/sorter/src/backgrounds/holo.jpg");
+    background-image: url("E:/Iver/Code/GitHub/main/sorter/src/backgrounds/holo.jpg");
     background-size: cover;
 }
 
@@ -171,7 +171,7 @@ input[type="range"]::-webkit-slider-thumb {
     appearance: none;
     width: 0.8vw;
     height: 2.7vh;
-    background-image: url("E:/Iver/Code/JavaScript program/sorter/src/backgrounds/holo.jpg");
+    background-image: url("E:/Iver/Code/GitHub/main/sorter/src/backgrounds/holo.jpg");
     background-size: cover;
     border: solid #151E2F 4px;
     cursor: pointer;

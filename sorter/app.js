@@ -62,7 +62,7 @@ class sorter {
 
 
 function sort(){
-    let array = [2,5,7,4,2,2]
+    let array = [2,5,7,4,3,1]
     let sortedArray = [];
 
 }
