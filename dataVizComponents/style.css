@@ -70,8 +70,9 @@ main {
 #dot {
     position: absolute;
     background-color: red;
-    height: 10px;
-    width: 10px;
+    height: 5px;
+    width: 5px;
+    border-radius: 10px;
     /* left: 1125px;
     top: 720px; */
 }
