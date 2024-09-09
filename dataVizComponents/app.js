@@ -5,7 +5,7 @@ window.onload = () => {
 }
 
 function draw() {
-    const values = [0,20,35,30,15];
+    const values = [20,35,30,15];
 
     if(document.getElementById("dot") == null) { 
         for(i = 0; i < values.length; i++) {
@@ -18,7 +18,6 @@ function draw() {
             dot.style.top = `${points.y}px`; 
             const randomColor = Math.floor(Math.random()*16777215).toString(16);
             dot.style.backgroundColor = "#" + randomColor;
-            console.log("#" + randomColor)
         }
 
 
@@ -34,16 +33,17 @@ function draw() {
 
 function calculatePointPositions(values, i) {
     const center = calculateCenter();
-    const prosentage = calculateProsentage(values);
+    const prosentage = calculateProsentage(values, i);
 
-    console.log(values, i, center, prosentage[i], prosentage)
-
-    const r = 200;
+    const r = 200;  
     // const random = Math.floor(Math.random() * 360);
     const random = 0;
 
-    const pointX = center.x - (r * Math.cos(random + prosentage[i]));
-    const pointY = center.y - (r * Math.sin(random + prosentage[i]));
+    let finalPros = prosentage[i];
+    for(let j = 0; j < i; j++) {finalPros = finalPros + prosentage[j];}
+
+    const pointX = parseFloat(center.x) + (r * Math.cos(random + finalPros));
+    const pointY = parseFloat(center.y) + (r * Math.sin(random + finalPros));
     
     return {
         x: pointX,
@@ -51,13 +51,14 @@ function calculatePointPositions(values, i) {
     }
 }
 
-function calculateProsentage(array) {
+function calculateProsentage(array, i) {
     const radianOfCircle = [];
 
     array.forEach(e => {
-        radianOfCircle[array.indexOf(e)] = (e * (360/100)) * (Math.PI / 180);
+        radianOfCircle.push((e * (360/100)) * (Math.PI / 180));
+        // radianOfCircle[array.indexOf(e)] = (e * (360/100)) * (Math.PI / 180);
     });
-   
+    
     return radianOfCircle;
 }
 
