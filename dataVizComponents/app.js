@@ -35,7 +35,7 @@ function calculatePointPositions(values, i) {
     const center = calculateCenter();
     const prosentage = calculateProsentage(values, i);
 
-    const r = 200;  
+    const r = calculateRadius();  
     // const random = Math.floor(Math.random() * 360);
     const random = 0;
 
@@ -44,7 +44,7 @@ function calculatePointPositions(values, i) {
 
     const pointX = parseFloat(center.x) + (r * Math.cos(random + finalPros));
     const pointY = parseFloat(center.y) + (r * Math.sin(random + finalPros));
-    
+
     return {
         x: pointX,
         y: pointY
@@ -70,6 +70,11 @@ function calculateCenter() {
         x: centerX.toString(),
         y: centerY.toString()
     }
+}
+
+function calculateRadius() {
+    const windowWidth = window.innerWidth;
+    return (windowWidth * 0.175) / 2;
 }
 
 window.addEventListener("resize", () => {

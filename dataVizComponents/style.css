@@ -63,8 +63,8 @@ main {
  
 #chartContainer {
     background-color: rgb(205, 212, 201);
-    height: 55vh;
-    width: 55vh;
+    height: 35vw;
+    width: 35vw;
 }
 
 #dot {
