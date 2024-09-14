@@ -1,17 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-
 * {
     margin: 0;
     padding: 0;
+    /* overflow-x: hidden; */
+    background-color: #111111;
+    color: white;
+    font-family: 'Inter';
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
 }
 
 header {
-    height: 10vh;
-    width: 100vw;
+    height: 9.5vh;
+    width: 99.65vw;
     /* background-color: red; */
     display: flex;
     justify-content: space-between;
+    border: solid white 4px;
 }
 
 #headerLogoContainer {
@@ -27,17 +34,14 @@ header {
     width: 70vw;
     display: flex;
     gap: 3vw;
-    justify-content: center;
+    justify-content: right;
     align-items: center;
+    margin-right: 75px;
     /* background-color: green; */
 }
 
 button {
     background-color: #FFF8E8; 
-    font-family: 'Inter';
-    font-optical-sizing: auto;
-    font-weight: 800;
-    font-style: normal;
     font-size: 1.4em;
     color: #302e2b;
     height: 5vh;
@@ -57,22 +61,82 @@ main {
     height: 90vh;
     width: 100vw;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
- 
-#chartContainer {
-    background-color: rgb(205, 212, 201);
-    height: 35vw;
-    width: 35vw;
+
+#spacerMain {
+    width: 12.5vw;
 }
 
-#dot {
-    position: absolute;
-    background-color: red;
-    height: 5px;
-    width: 5px;
-    border-radius: 10px;
-    /* left: 1125px;
-    top: 720px; */
+#menuContainer {
+    height: 100%;
+    width: 25vw;
+    border: solid white 4px;
+    border-top: none;
+}
+
+#sliderContainer {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+}
+
+#amountOfValuesContainer {
+    margin-top: 40px;
+}
+
+#amountOfValuesContainers {
+    margin-top: 40px;
+}
+ 
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18vw;
+    height: 10px;
+    margin-bottom: 17px;
+    background: white;
+    outline: none;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 2.7vh;
+    height: 2.7vh;
+    background-color: black;
+    border: solid white 6px;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: 50ms ease-in-out;
+}
+
+p {
+    font-size: 1.4em;
+}
+
+#chartContainer {
+    /* background-color: rgb(205, 212, 201); */
+    height: 35vw;
+    width: 50vw;
+    border: solid white 4px;
+    /* border-radius: 50em; */
+}
+
+#path {
+    stroke: white;
+    stroke-width: 4px;
+    stroke-linejoin: round;
+    transition: 200ms;
+}
+
+#path:hover {
+    cursor: pointer;
+    stroke-width: 10px;
 }

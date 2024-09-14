@@ -1,22 +1,30 @@
 window.onload = () => {
-    draw();
+    draw(amountOfValues.value);
+    createSliders(amountOfValues.value);
 }
 
-function draw() {
-    valuesArray = [30,20,10,40];
+function draw(rangeInput) {
+    if(document.getElementById("path")) {
+    document.getElementById("path").remove();
+    }
 
-    const svg = document.getElementById("svg");
+    let valuesArray = calculetValues(rangeInput);
 
+    const svg = document.getElementById("chartContainer");
 
-    svg.style.height = `${(window.innerWidth * 0.6) / 2}px`;
-    svg.style.width = `${(window.innerWidth * 0.6) / 2}px`;
+    // svg.style.height = `${(window.innerWidth * 0.6) / 2}px`;
+    // svg.style.width = `${(window.innerWidth * 0.6) / 2}px`;
 
     const cx = svg.clientWidth / 2;
     const cy =  svg.clientHeight / 2;
 
     const radius = (window.innerWidth * 0.15) / 2;
-    const outsideRadius = 75;
+    const outsideRadius = 125;
     
+    if (valuesArray.length == 1) {
+        valuesArray[0] = valuesArray[0] - 0.01;
+    }
+
     for(i = 0; i < valuesArray.length; i++) {
         const points = calculatePoints(valuesArray, cx, cy, radius, outsideRadius, i);
 
@@ -25,9 +33,6 @@ function draw() {
         svg.appendChild(path);
         const randomColor = Math.floor(Math.random()*16777215).toString(16);
         path.setAttribute("fill", `#${randomColor}`);
-        path.setAttribute("stroke", `black`);
-        path.setAttribute("stroke-width", "4");
-        path.setAttribute("stroke-linejoin", "round")
 
         const largeArcFlag = (points.endAngle - points.startAngle > Math.PI) ? 1 : 0;
         
@@ -40,6 +45,42 @@ function draw() {
         ].join(' ');
 
         path.setAttribute('d', pathData);
+    }
+}
+
+function createSliders(amountOfValues) {
+    for (i = 0; i < 8; i++) {
+        if (document.getElementById(`slider${i}`) != null) {
+            console.log(i, "why")
+            document.getElementById(`slider${i}`).remove();
+            document.getElementById("amountOfValuesContainers").remove();
+            document.getElementById(`values${i}`).remove();
+            document.getElementById(`test${i}`).remove();
+        }
+    }
+    
+    for (i = 0; i < amountOfValues; i++) {
+        const div = document.createElement("div");
+        div.id = "amountOfValuesContainers";
+        document.getElementById("sliderContainer").appendChild(div);
+
+        const slider = document.createElement("input");
+        slider.id = `slider${i}`;
+        slider.setAttribute("type", "range");
+        slider.setAttribute("min", "1");
+        slider.setAttribute("max", "100");
+        slider.setAttribute("value", "25");
+        div.appendChild(slider);
+
+        const p = document.createElement("p");
+        p.id = `test${i}`;
+        p.textContent = "Value: ";
+        div.appendChild(p);
+
+        const output =  document.createElement("output");
+        output.textContent = "yes ";
+        output.id = `values${i}`;
+        p.appendChild(output);
     }
 }
 
@@ -77,6 +118,16 @@ function calculatePoints(valuesArray, cx, cy, radius, outsideRadius, i) {
     return {startAngle, endAngle, x1, y1, x2, y2, l1, l2, x3, y3, l3, l4}
 }
 
+function calculetValues(rangeInput) {
+    let values = [];
+    
+    for (i = 0; i < rangeInput; i++) {
+        values.push(100/rangeInput);
+    }
+
+    return values
+}
+
 function calulateRadians(valuesArray) {
     const radians = [];
 
@@ -87,12 +138,21 @@ function calulateRadians(valuesArray) {
     return radians 
 }
 
-// const path = document.getElementById("path");
+// const path = document.getElementsByTagName("path");
 // path.addEventListener("mouseover", myFuncition);
 // function myFuncition(){
 //     console.log("aølwidj")
 // }
 
+const amountOfValues = document.getElementById("amountOfValues");
+amountOfValuesText.textContent = amountOfValues.value;
+amountOfValues.addEventListener("input", (e) => {
+    amountOfValuesText.textContent = e.target.value;
+    
+    draw(e.target.value);
+    createSliders(e.target.value);
+});
+
 window.addEventListener("resize", () => {
-    draw();
-})
+    draw(amountOfValues.value);
+});

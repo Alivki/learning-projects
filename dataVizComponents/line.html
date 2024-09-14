@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">   
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="icon" href="E:/Iver/Code/GitHub/main/dataVizComponents/src/favicon/pie.svg"type="image/x-icon"/>
-    <title>Pie chart</title>
+    <link rel="icon" href="E:/Iver/Code/GitHub/main/dataVizComponents/src/favicon/bar.svg"type="image/x-icon"/>
+    <title>Line chart</title>
 </head>
 <body>
     
@@ -17,10 +17,10 @@
             </span>
         </section>
         <section id="headerMenuContainer">
-            <form action="">
+            <form action="pie.html">
                 <button id="pie">pie chart</button>
             </form>
-            <form action="line.html">
+            <form action="">
                 <button id="line">line chart</button>
             </form>
         </section>
@@ -28,12 +28,7 @@
 
     <main>
         <section id="menuContainer">
-            <section id="sliderContainer"> 
-                <div id="amountOfValuesContainer">
-                    <input type="range" id="amountOfValues" min="1" max="8" value="4"> 
-                    <p>Amount of segments in the pie chart: <output id="amountOfValuesText"></output></p>
-                </div>
-            </section>
+
         </section>
 
         <section id="spacerMain"></section>
@@ -45,10 +40,6 @@
         <section id="spacerMain"></section>
     </main>
 
-    <footer>
-
-    </footer>
-
-    <script type="text/javascript" src="pie.js"></script>
+    <script type="text/javascript" src="line.js"></script>
 </body>
 </html>

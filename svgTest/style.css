@@ -12,6 +12,11 @@
     /* background-color: gray; */
 }
 
-/* svg {
-    background-color: green;
-} */
+svg {
+    background-color: #e7e7e7;
+}
+
+
+#path:hover{
+    cursor: pointer;
+}

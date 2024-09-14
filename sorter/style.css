@@ -161,7 +161,6 @@ input[type="range"] {
     height: 10px;
     background: #151E2F;
     outline: none;
-    opacity: 0.7;
     -webkit-transition: .2s;
     transition: opacity .2s;
 }
