@@ -18,8 +18,8 @@ function draw(rangeInput) {
     const cx = svg.clientWidth / 2;
     const cy =  svg.clientHeight / 2;
 
-    const radius = (window.innerWidth * 0.15) / 2;
-    const outsideRadius = 125;
+    const radius = (window.innerWidth * 0.125) / 2;
+    const outsideRadius = (window.innerHeight * 0.25) / 2;
     
     if (valuesArray.length == 1) {
         valuesArray[0] = valuesArray[0] - 0.01;
@@ -49,39 +49,59 @@ function draw(rangeInput) {
 }
 
 function createSliders(amountOfValues) {
+    const maxValue = 100/amountOfValues % 1 == 0 ? 100/amountOfValues :  (100/amountOfValues).toFixed(2);
+
     for (i = 0; i < 8; i++) {
         if (document.getElementById(`slider${i}`) != null) {
-            console.log(i, "why")
-            document.getElementById(`slider${i}`).remove();
-            document.getElementById("amountOfValuesContainers").remove();
+            document.getElementById(`maxValues${i}`).remove();
+            document.getElementById(`sliderText1`).remove();
             document.getElementById(`values${i}`).remove();
-            document.getElementById(`test${i}`).remove();
+            document.getElementById(`sliderText0`).remove();
+            document.getElementById(`slider${i}`).remove();
+            document.getElementById(`amountOfValuesContainers`).remove();
         }
     }
     
-    for (i = 0; i < amountOfValues; i++) {
+    for (j = 0; j < amountOfValues; j++) {
         const div = document.createElement("div");
-        div.id = "amountOfValuesContainers";
+        div.id = `amountOfValuesContainers`;
         document.getElementById("sliderContainer").appendChild(div);
 
         const slider = document.createElement("input");
-        slider.id = `slider${i}`;
+        slider.id = `slider${j}`;
         slider.setAttribute("type", "range");
         slider.setAttribute("min", "1");
-        slider.setAttribute("max", "100");
-        slider.setAttribute("value", "25");
+        slider.setAttribute("max", `100`);
+        slider.setAttribute("value", `${maxValue}`);
         div.appendChild(slider);
 
-        const p = document.createElement("p");
-        p.id = `test${i}`;
-        p.textContent = "Value: ";
-        div.appendChild(p);
+        const p0 = document.createElement("p");
+        p0.id = `sliderText0`;
+        p0.textContent = "Value: ";
+        div.appendChild(p0);
 
-        const output =  document.createElement("output");
-        output.textContent = "yes ";
-        output.id = `values${i}`;
-        p.appendChild(output);
+        const sliderValue =  document.createElement("output");
+        sliderValue.id = `values${j}`;
+        p0.appendChild(sliderValue);
+
+        const p1 = document.createElement("p");
+        p1.id = "sliderText1";
+        p1.textContent = "Max value for segment: "
+        div.appendChild(p1);
+
+        const maxSliderValue = document.createElement("output");
+        maxSliderValue.id = `maxValues${j}`;
+        maxSliderValue.textContent = `${maxValue}`
+        p1.appendChild(maxSliderValue);
     }
+}
+
+function setSliderValues(amountOfValues) {
+    // const maxValue = 100 / amountOfValues;
+
+    // for (i = 0; i < amountOfValues; i++) {
+    //     document.getElementById(`maxValues${i}`).textContent = maxValue % 1 == 0 ? maxValue :  maxValue.toFixed(2);
+    // }
 }
 
 function calculatePoints(valuesArray, cx, cy, radius, outsideRadius, i) {
@@ -151,6 +171,7 @@ amountOfValues.addEventListener("input", (e) => {
     
     draw(e.target.value);
     createSliders(e.target.value);
+    setSliderValues(e.target.value);
 });
 
 window.addEventListener("resize", () => {

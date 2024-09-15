@@ -124,7 +124,8 @@ p {
 #chartContainer {
     /* background-color: rgb(205, 212, 201); */
     height: 35vw;
-    width: 50vw;
+    /* width: 50vw; */
+    aspect-ratio: 1.618 / 1;
     border: solid white 4px;
     /* border-radius: 50em; */
 }
@@ -139,4 +140,5 @@ p {
 #path:hover {
     cursor: pointer;
     stroke-width: 10px;
+    z-index: 10;
 }
