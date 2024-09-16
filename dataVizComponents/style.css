@@ -7,14 +7,14 @@
     background-color: #111111;
     color: white;
     font-family: 'Inter';
-    font-optical-sizing: auto;
+    /* font-optical-sizing: auto; */
     font-weight: 800;
     font-style: normal;
 }
 
 header {
-    height: 9.5vh;
-    width: 99.65vw;
+    height: 10vh;
+    /* width: 99.65vw; */
     /* background-color: red; */
     display: flex;
     justify-content: space-between;
@@ -22,21 +22,21 @@ header {
 }
 
 #headerLogoContainer {
-    height: 100%;
-    width: 10vh;
+    /* height: 100%; */
+    /* width: 10vh; */
     display: flex;
     align-items: center;
     /* background-color: blue; */
 }
 
 #headerMenuContainer {
-    height: 100%;
-    width: 70vw;
+    /* height: 100%; */
+    /* width: 70vw; */
     display: flex;
     gap: 3vw;
     justify-content: right;
     align-items: center;
-    margin-right: 75px;
+    margin-right: 5vw;
     /* background-color: green; */
 }
 
@@ -45,10 +45,10 @@ button {
     font-size: 1.4em;
     color: #302e2b;
     height: 5vh;
-    width: 10vw;
+    width: 150px;
     /* background-color: magenta; */
     border: solid 1px #FFF8E8;
-    border-radius: 1.5em;
+    border-radius: 2.5vh;
     transition: 250ms;
 }
 
@@ -59,26 +59,32 @@ button:hover {
 
 main {
     height: 90vh;
-    width: 100vw;
+    /* width: 100%; */
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 #spacerMain {
-    width: 12.5vw;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: solid white 4px;
 }
 
 #menuContainer {
     height: 100%;
-    width: 25vw;
+    min-width: 25vw;
     border: solid white 4px;
     border-top: none;
+    border-bottom: none;
 }
 
 #sliderContainer {
-    height: 100%;
-    width: 100%;
+    /* height: 100%; */
+    /* width: 100%; */
     display: flex;
     /* justify-content: center; */
     align-items: center;
@@ -86,19 +92,23 @@ main {
 }
 
 #amountOfValuesContainer {
-    margin-top: 40px;
+    margin-top: 3vh;
 }
 
 #amountOfValuesContainers {
-    margin-top: 40px;
+    margin-top: 3vh;
+}
+
+#amountOfValues {
+    margin-top: 3vh;
 }
  
 input[type="range"] {
     -webkit-appearance: none;
     appearance: none;
     width: 18vw;
-    height: 10px;
-    margin-bottom: 17px;
+    height: 5px;
+    margin-bottom: 1.6vh;
     background: white;
     outline: none;
     -webkit-transition: .2s;
@@ -108,10 +118,10 @@ input[type="range"] {
 input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 2.7vh;
-    height: 2.7vh;
+    width: 20px;
+    height: 20px;
     background-color: black;
-    border: solid white 6px;
+    border: solid white 4px;
     border-radius: 2rem;
     cursor: pointer;
     transition: 50ms ease-in-out;
@@ -123,7 +133,7 @@ p {
 
 #chartContainer {
     /* background-color: rgb(205, 212, 201); */
-    height: 35vw;
+    height: 30vw;
     /* width: 50vw; */
     aspect-ratio: 1.618 / 1;
     border: solid white 4px;
@@ -140,5 +150,49 @@ p {
 #path:hover {
     cursor: pointer;
     stroke-width: 10px;
-    z-index: 10;
+}
+
+footer {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid white 4px;
+}
+
+@media screen and (max-width: 1920px) {
+    * {
+        font-size: 0.7rem;
+    }
+}
+
+@media screen and (max-width: 479px) {
+    main {
+        flex-direction: column;
+    }
+
+    button {
+        width: 25vw;
+    }
+
+    #menuContainer {
+        width: 98vw;
+        padding-bottom: 30px;
+        border-bottom: solid white 4px;
+    }
+
+    input[type="range"] {
+        width: 75vw;
+    }
+
+    #spacerMain {
+        display: flex;
+    }
+
+    #chartContainer {
+        width: 100%;
+        height: 100vw;
+        border-top: none;
+        border-bottom: none;
+    }
 }

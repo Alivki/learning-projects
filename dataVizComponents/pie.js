@@ -53,8 +53,8 @@ function createSliders(amountOfValues) {
 
     for (i = 0; i < 8; i++) {
         if (document.getElementById(`slider${i}`) != null) {
-            document.getElementById(`maxValues${i}`).remove();
-            document.getElementById(`sliderText1`).remove();
+            // document.getElementById(`maxValues${i}`).remove();
+            // document.getElementById(`sliderText1`).remove();
             document.getElementById(`values${i}`).remove();
             document.getElementById(`sliderText0`).remove();
             document.getElementById(`slider${i}`).remove();
@@ -84,15 +84,15 @@ function createSliders(amountOfValues) {
         sliderValue.id = `values${j}`;
         p0.appendChild(sliderValue);
 
-        const p1 = document.createElement("p");
-        p1.id = "sliderText1";
-        p1.textContent = "Max value for segment: "
-        div.appendChild(p1);
+        // const p1 = document.createElement("p");
+        // p1.id = "sliderText1";
+        // p1.textContent = "Max value for segment: "
+        // div.appendChild(p1);
 
-        const maxSliderValue = document.createElement("output");
-        maxSliderValue.id = `maxValues${j}`;
-        maxSliderValue.textContent = `${maxValue}`
-        p1.appendChild(maxSliderValue);
+        // const maxSliderValue = document.createElement("output");
+        // maxSliderValue.id = `maxValues${j}`;
+        // maxSliderValue.textContent = `${maxValue}`
+        // p1.appendChild(maxSliderValue);
     }
 }
 
