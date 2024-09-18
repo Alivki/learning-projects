@@ -144,12 +144,12 @@ p {
     stroke: white;
     stroke-width: 4px;
     stroke-linejoin: round;
-    transition: 200ms;
+    transition: 400ms;
 }
 
 #path:hover {
     cursor: pointer;
-    stroke-width: 10px;
+    /* stroke-width: 10px; */
 }
 
 footer {
@@ -195,4 +195,26 @@ footer {
         border-top: none;
         border-bottom: none;
     }
+}
+
+#hiddenHover {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    width: 60px;
+    visibility: hidden;
+    font-size: 1.5em;
+    font-weight: 700;
+    background-color: white;
+    color: black;
+    padding-left: 40px;
+}
+
+#hiddenHoverColor {
+    position: absolute;
+    height: 20px;
+    visibility: hidden;
+    width: 20px;
 }
