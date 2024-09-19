@@ -133,7 +133,7 @@ p {
 
 #chartContainer {
     /* background-color: rgb(205, 212, 201); */
-    height: 30vw;
+    height: 60vh;
     /* width: 50vw; */
     aspect-ratio: 1.618 / 1;
     border: solid white 4px;
@@ -144,7 +144,9 @@ p {
     stroke: white;
     stroke-width: 4px;
     stroke-linejoin: round;
-    transition: 400ms;
+    /* transition: 400ms; */
+    transition-timing-function: cubic-bezier(0.95, -0.01, 0.27, 1.02);
+    transition-duration: 200ms;
 }
 
 #path:hover {
@@ -202,10 +204,10 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 35px;
-    width: 60px;
+    height: 2.5vh;
+    width: 4vw;
     visibility: hidden;
-    font-size: 1.5em;
+    font-size: 1.25rem;
     font-weight: 700;
     background-color: white;
     color: black;
