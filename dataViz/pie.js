@@ -14,9 +14,6 @@ function draw(rangeInput) {
 
     const svg = document.getElementById("chartContainer");
 
-    // svg.style.height = `${(window.innerWidth * 0.6) / 2}px`;
-    // svg.style.width = `${(window.innerWidth * 0.6) / 2}px`;
-
     const cx = svg.clientWidth / 2;
     const cy =  svg.clientHeight / 2;
 
@@ -96,25 +93,7 @@ function createSliders(amountOfValues) {
         const sliderValue =  document.createElement("output");
         sliderValue.id = `values${j}`;
         p0.appendChild(sliderValue);
-
-        // const p1 = document.createElement("p");
-        // p1.id = "sliderText1";
-        // p1.textContent = "Max value for segment: "
-        // div.appendChild(p1);
-
-        // const maxSliderValue = document.createElement("output");
-        // maxSliderValue.id = `maxValues${j}`;
-        // maxSliderValue.textContent = `${maxValue}`
-        // p1.appendChild(maxSliderValue);
     }
-}
-
-function setSliderValues(amountOfValues) {
-    // const maxValue = 100 / amountOfValues;
-
-    // for (i = 0; i < amountOfValues; i++) {
-    //     document.getElementById(`maxValues${i}`).textContent = maxValue % 1 == 0 ? maxValue :  maxValue.toFixed(2);
-    // }
 }
 
 function calculatePoints(valuesArray, cx, cy, radius, outsideRadius, hoverRadius, i) {
@@ -177,12 +156,10 @@ function calulateRadians(valuesArray) {
     return radians 
 }
 
-// const path = document.getElementsByTagName("path");
-// path.addEventListener("mouseover", myFuncition);
-// function myFuncition(){
-//     console.log("aølwidj")
-// }
 
+// document.getElementsByTagName("input").addEventListener("input", (e) => {
+//     console.log("this works on all sliders?");
+// });
 
 const amountOfValues = document.getElementById("amountOfValues");
 amountOfValuesText.textContent = amountOfValues.value;
@@ -191,7 +168,6 @@ amountOfValues.addEventListener("input", (e) => {
     
     draw(e.target.value);
     createSliders(e.target.value);
-    setSliderValues(e.target.value);
 });
 
 window.addEventListener("resize", () => {
@@ -227,8 +203,9 @@ document.getElementById("chartContainer").addEventListener("mouseout", (e) => {
 document.addEventListener("mousemove", (e) => {
     const hidden = document.getElementById("hiddenHover");
     const hiddenColor = document.getElementById("hiddenHoverColor");
-    const x = e.clientX;
-    const y = e.clientY;
+    console.log(e)
+    const x = e.layerX;
+    const y = e.layerY;
 
     hidden.style.left = `${x - (hidden.clientWidth / 2)}px`;
     hidden.style.top = `${y - (hidden.clientHeight + 15)}px`;
