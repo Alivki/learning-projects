@@ -9,4 +9,4 @@ function changeBG() {
 
 }
 
-random = () => { return Math.floor(Math.random() * 43) }
+random = () => { return Math.floor(Math.random() * 49) }
